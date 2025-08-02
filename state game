@@ -1,0 +1,87 @@
+# Dictionary that maps each state in lowercase to a tuple: order of statehood, date joined.
+states = {
+    "delaware": (1, "December 7,1787"),
+    "pennsylvania": (2, "December 12, 1787"),
+    "new jersey": (3, "December 18, 1787"),
+    "georgia": (4, "January 2, 1788"),
+    "connecticut": (5, "January 9, 1788"),
+    "massachusetts": (6, "February 6, 1788"),
+    "maryland": (7, "April 28, 1788"),
+    "south carolina": (8, "May 23, 1788"),
+    "new hampshire": (9, "June 21, 1788"),
+    "virgina": (10, "June 25, 1788"),
+    "new york": (11, "July 26, 1788"),
+    "north carolina": (12, "November 21,1789"),
+    "rhode island": (13, "May 29, 1790"),
+    "vermont": (14, "March 4, 1791"),
+    "kentucky": (15, "June 1, 1792"),
+    "tennessee": (16, "June 1, 1796"),
+    "ohio": (17, "March 1, 1803"),
+    "louisiana": (18, "April 30,1812"),
+    "indiana": (19, "December 11, 1816"),
+    "mississippi": (20, "December 10, 1817"),
+    "illinois": (21, "December 3, 1818"),
+    "alabama": (22, "December 14, 1819"),
+    "maine": (23, "March 15, 1820"),
+    "missouri": (24, "August 10, 1821"),
+    "arkansas": (25, "June 15, 1836"),
+    "michigan": (26, "January 26, 1837"),
+    "florida": (27, "March 3, 1845"),
+    "texas": (28, "December 29, 1845"),
+    "iowa": (29, "December 28, 1846"),
+    "wisconsin": (30, "May 29, 1848"),
+    "california": (31, "September 9, 1850"),
+    "minnesota": (32, "May 11, 1858"),
+    "oregon": (33, "February 14, 1859"),
+    "kansas": (34, "January 29, 1861"),
+    "west virginia": (35, "June 20, 1863"),
+    "nevada": (36, "October 31, 1864"),
+    "nebraska": (37, "March 1, 1867"),
+    "colorado": (38, "August 1, 1876"),
+    "north dakota": (39, "November 2, 1889"),
+    "south dakota": (40, "November 2, 1889"),
+    "montana": (41, "November 8, 1889"),
+    "washington": (42, "November 11, 1889"),
+    "idaho": (43, "July 3, 1890"),
+    "wyoming": (44, "July 10, 1890"),
+    "utah": (45, "January 4, 1896"),
+    "oklahoma": (46, "November 16, 1907"),
+    "new mexico": (47, "January 6, 1912"),
+    "arizona": (48, "February 14, 1912"),
+    "alaska": (49, "January 3, 1959"),
+    "hawaii": (50, "August 21, 1959")
+}
+# Main function
+def main():
+    print("Welcome to the U.S. statehood game.")
+    print("Pick a state to learn about.")
+    print("Type 'exit' to quit.\n")
+
+    while True:
+        # Ask for input
+        state = input("Enter a state: ").strip().lower()
+        # Check if users wants to exit
+        if state == 'exit':
+            print("Goodbye")
+            break
+        # If state is valid, show info
+        elif state in states:
+            order, date = states[state]
+            print(f"{state.title()} was the {order}{ordinal_suffix(order)} state, joined on {date}.\n")
+        else:
+            print("State not recognized, try again.\n")
+# This function adds to the correct suffix to the number
+def ordinal_suffix(n):
+    if 11 <= n % 100 <= 13:
+        return "th"
+    elif n % 10 == 1:
+        return "st"
+    elif n % 10 == 2:
+        return "nd"
+    elif n % 10 == 3:
+        return "rd"
+    else:
+        return "th"
+# Makes sure game only run if this file is executed directly
+if __name__ == "__main__":
+    main()
